@@ -1,0 +1,13 @@
+# Grafana auto-provisioning: Dashboard provider config
+apiVersion: 1
+
+providers:
+  - name: "LLM Inference Server"
+    orgId: 1
+    folder: ""
+    type: file
+    disableDeletion: false
+    editable: true
+    options:
+      path: /var/lib/grafana/dashboards
+      foldersFromFilesStructure: false

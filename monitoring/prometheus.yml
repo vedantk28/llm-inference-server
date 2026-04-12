@@ -1,0 +1,17 @@
+# Prometheus configuration for LLM Inference Server
+# Scrapes the FastAPI /metrics endpoint for custom + default metrics
+
+global:
+  scrape_interval: 5s       # Scrape every 5 seconds for near-real-time dashboards
+  evaluation_interval: 5s
+
+scrape_configs:
+  - job_name: "llm-inference-server"
+    # 'host.docker.internal' resolves to the host machine from within Docker
+    # This works for Docker Desktop (macOS/Windows) and also for Linux with
+    # --add-host=host.docker.internal:host-gateway in docker-compose
+    static_configs:
+      - targets: ["172.17.0.1:8000"]
+        labels:
+          service: "llm-gateway"
+          environment: "development"
