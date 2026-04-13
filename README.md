@@ -1,10 +1,10 @@
-# 🚀 LLM Inference Server
+#  LLM Inference Server
 
 A production-grade LLM inference gateway built with **FastAPI** that optimizes local GPU usage via Ollama/vLLM, automatically falls back to Azure OpenAI when the GPU is saturated, enforces token budgets, and exposes real-time observability through Prometheus + Grafana.
 
 **Built for:** NVIDIA RTX 3050 (4GB VRAM) — but works on any NVIDIA GPU.
 
-## 📊 Benchmark Results (RTX 3050 Laptop GPU)
+##  Benchmark Results (RTX 3050 Laptop GPU)
 
 | Metric | Mistral 7B (CPU/GPU split) | Qwen 1.5B (100% GPU) |
 |---|---|---|
@@ -18,7 +18,7 @@ A production-grade LLM inference gateway built with **FastAPI** that optimizes l
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
                     ┌─────────────────────────────────────────┐
@@ -48,7 +48,7 @@ The counter catches inference overload instantly. The GPU monitor catches extern
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 llm-inference-server/
@@ -87,12 +87,12 @@ llm-inference-server/
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
 - Python 3.12+
-- NVIDIA GPU with drivers loaded (`nvidia-smi` should work)
+- NVIDIA GPU with drivers loaded 
 - [Ollama](https://ollama.com/) installed and running
 - Docker (optional, for Prometheus + Grafana)
 
@@ -157,7 +157,7 @@ curl -X POST http://localhost:8000/benchmark \
 curl http://localhost:8000/metrics | grep llm_
 ```
 
-### Start Monitoring Stack (Optional)
+### Start Monitoring Stack 
 
 ```bash
 docker compose up -d
@@ -171,7 +171,7 @@ docker compose up -d
 
 ---
 
-## 📡 API Reference
+##  API Reference
 
 ### Endpoints
 
@@ -218,7 +218,7 @@ Requests exceeding `MAX_TOKENS_BUDGET` are rejected with **HTTP 400**:
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 All settings via environment variables or `.env` file:
 
@@ -239,7 +239,7 @@ All settings via environment variables or `.env` file:
 
 ---
 
-## 📈 Prometheus Metrics
+##  Prometheus Metrics
 
 | Metric | Type | Labels |
 |---|---|---|
@@ -255,7 +255,7 @@ All settings via environment variables or `.env` file:
 
 ---
 
-## 🔀 vLLM Backend (Optional)
+##  vLLM Backend 
 
 For production throughput with **PagedAttention** and **continuous batching**:
 
@@ -277,7 +277,7 @@ python -m vllm.entrypoints.openai.api_server \
 
 ---
 
-## 🧠 Key Design Decisions
+##  Key Design Decisions
 
 | Decision | Rationale |
 |---|---|
@@ -291,7 +291,7 @@ python -m vllm.entrypoints.openai.api_server \
 
 ---
 
-## 🎓 Learning Objectives
+##  Learning Objectives
 
 This project covers:
 
@@ -307,6 +307,3 @@ This project covers:
 
 ---
 
-## 📝 License
-
-MIT
