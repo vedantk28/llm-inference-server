@@ -2,7 +2,7 @@
 
 A production-grade LLM inference gateway built with **FastAPI** that optimizes local GPU usage via Ollama/vLLM, automatically falls back to Azure OpenAI when the GPU is saturated, enforces token budgets, and exposes real-time observability through Prometheus + Grafana.
 
-**Built for:** NVIDIA RTX 3050 (4GB VRAM) — but works on any NVIDIA GPU.
+**Built On:** NVIDIA RTX 3050 (4GB VRAM) — but works on any NVIDIA GPU.
 
 ##  Benchmark Results (RTX 3050 Laptop GPU)
 
