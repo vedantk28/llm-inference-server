@@ -291,7 +291,7 @@ python -m vllm.entrypoints.openai.api_server \
 
 ---
 
-##  Learning Objectives
+##  Concepts Covered
 
 This project covers:
 
