@@ -100,7 +100,7 @@ llm-inference-server/
 
 ```bash
 # Clone the repo
-git clone https://github.com/YOUR_USERNAME/llm-inference-server.git
+git clone https://github.com/vedantk28/llm-inference-server.git
 cd llm-inference-server
 
 # Create virtual environment
