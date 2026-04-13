@@ -167,6 +167,8 @@ docker compose up -d
 # Dashboard is auto-provisioned
 ```
 
+> **Networking Note:** The monitoring stack uses `network_mode: "host"` (Linux native). This provides production-level, zero-latency metric scraping without Docker NAT overlays.
+
 ---
 
 ## 📡 API Reference
@@ -281,6 +283,7 @@ python -m vllm.entrypoints.openai.api_server \
 |---|---|
 | **pynvml** over `nvidia-smi` subprocess | ~1ms vs ~200ms per GPU query — critical under load |
 | **5s TTL cache** on GPU readings | Avoids hammering pynvml hundreds of times/sec |
+| **On-Demand GPU Metric Polling** | Prometheus GPU variables update natively when `/health` is polled, minimizing background tracking overhead |
 | **In-memory request counter** as primary routing signal | Zero-cost compared to GPU polling for every request |
 | **`AutoTokenizer`** for local models | tiktoken `cl100k_base` is ~10-20% off for Qwen/Mistral tokenizers |
 | **HTTP 400** for token budget (not 429) | 429 is rate limiting; budget violations are request validation errors |
